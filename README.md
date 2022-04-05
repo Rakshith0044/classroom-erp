@@ -10,19 +10,19 @@ Step 3:  Install editor it can be anyone from below:
       VS code:https://code.visualstudio.com/  
       Sublime:https://www.sublimetext.com/
 
-Step 4:  Open Project file go to \final_erp\final_erp\classroom\database
+Step 4:  Open Project file go to \classroom\database
 
 Step 5:  Open  connection.js in  editor Set host,user, and password which is same as set in my sql workbench
       ![image](https://user-images.githubusercontent.com/76027055/161752210-6426650e-ae84-43ac-9a65-e03b5c816f16.png)
 
 Step 6:   Open Mysql Workbench and run below code “create database classroom;”
 
-Step 7:  Go to \final_erp\final_erp\classroom\database in CMD Run following command “node data_set.js”
+Step 7:  Go to classroom\database in CMD Run following command “node data_set.js”
 Which will create table and add data.
                                 ![image](https://user-images.githubusercontent.com/76027055/161752304-100b37c6-8719-493c-a7bd-563f22dc6b06.png)
 
 
-Step 8:  Go to \final_erp\final_erp\classroom in CMD Run following command “nodemon app.js”
+Step 8:  Go to \classroom in CMD Run following command “nodemon app.js”
 As you can see the website is running at port 5000
 
 Step 9:  Open Browser and type the address http://localhost:5000/login_teacher
