@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/stud_dash_styles.css">
+	<title>Student Dashboard</title>
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	  <div class="container-fluid">
+	    <a class="navbar-brand" href="#">LearnHub</a>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	      <ul class="navbar-nav d-flex ms-auto mb-2 mb-lg-1">
+	        <form method="post" action="/logout">
+				<li class="nav-item">
+				  <button type="submit" class="btn btn-outline-danger" href="/logout">Logout</button>
+				</li>
+			</form>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+
+	<br>
+	<div class="container">
+		<h1 class="text-center">Welcome To Your DashBoard!</h1>
+		<br>
+		<div class="row">
+			<div class=" col-md-4 col-sm-12">
+				<div class="card bg-dark text-white mx-auto" style="width: 18rem;">
+				  <img src="images/no_img.jpg" class="card-img-top" style="height: 15rem;">
+					<div class="card-body">
+				    	<h5 class="card-title"><%= user.stud_name %></h5>
+				    	<h6 class="card-subtitle text-muted">Student</h6>
+				    	<div class="card-text">Student ID: <%= user.usn %></div>
+				    	<div class="card-text">Department: <%= user.dept_name %></div>
+				    	<div class="card-text">Phone No: <%= user.contact %></div>
+				    	<div class="card-text">Email: <%= user.email %></div>
+				    	<div class="card-text">Gender: <%= user.gender=='M' ? 'Male' : 'Female' %></div>
+				  	</div>
+				</div>
+			</div>
+  		
+			<div class="col-sm-12 col-md-8" style="background-color: pink;">
+  				<div class="row">
+					<div class="col-sm-11 col-lg-10 col-md-9 mx-auto ">
+				    	<div class="card text-center card2">
+				    		<div class="card-body Attendence" style="height: 250px;">
+				        		<h2 class="card-title">Overall Attendence: </h2>
+				        		<br>
+				        		<p class="card-text"><%= total.avg %>%</p>
+				      		</div>
+				    	</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<br>
+	</div>
+
+	<div class="container">
+		<hr>
+		<h3 style="font-weight: bold;">Subject Wise Attendence:</h3>
+		<hr>
+
+		<% let count=1 %>
+		<% attendence.forEach(function(x){ %>
+		<div class="accordion " id="accordionExample">
+		  <div class="accordion-item">
+		    <h2 class="accordion-header" id="headingOne">
+		      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= x.course_id %>" aria-expanded="true" aria-controls="collapse<%= x.course_id %>" style="background-color: black;" >
+		        <table class="table" >
+				  <tbody class="colour">
+				    <tr>
+			    		<td class="text-center"><%= count %></td>
+				      	<td class=""><%= x.course_name %></td>
+					    <td class="text-center">Attendence count: <%=x.num%>/<%=x.demo%></td>
+					    <td class="text-end"><%= x.per %>%</td>
+				    </tr>
+				  </tbody>
+				</table>
+		      </button>
+		    </h2>
+			<% count+=1 %>
+		    <div id="collapse<%= x.course_id %>" class="accordion-collapse collapse col-9 mx-auto" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+		      <div class="accordion-body">
+		        <table class="table text-center table-bordered table-striped" >
+					<thead class="table-dark ">
+					    <tr>
+					      <th scope="col">Date</th>
+					      <th scope="col">Session</th>
+					      <th scope="col">Status</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					<% let session=1 %>
+					<% status.forEach(function(y){ %> 
+						<% if(y.course_id==x.course_id){ %>
+					    <tr>
+					      <td><%= y.date %></td>
+					      <td><%= session %></td>
+					      <% if(y.status==1){ %>
+						  	<td>
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+									<path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+								  </svg>
+							</td>
+							<% 	} else{ %>
+							<td>
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
+									<path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+									<path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+								  </svg>
+							</td> 
+							<%  } %>
+					    </tr>
+					    	<% session+=1 %>
+                  			<% } %>
+                		<% }); %>
+					  </tbody>
+				</table>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<% }); %>
+	</div> 
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
+

@@ -1,0 +1,76 @@
+form{
+	width: auto;
+	margin: 50px 15px 150px 25px;
+}
+h1{
+	
+	/*margin: 50px 15px 0px 150px;*/
+}
+body{
+	background-color: black;
+}
+button{
+	margin-bottom: 20px;
+}
+.tabs {
+
+	width: auto;
+}
+.nav-item{
+
+	width: 50%;
+}
+.container{
+	
+	width: auto;
+
+}
+
+.box{
+	background-color: white;
+	align-items: center;
+	width: auto;
+}
+
+.box h1{
+	text-align: center;
+	width: 100%;
+	margin-top: 10px;
+}
+
+@media (max-width:576px){
+ 	.box{
+		margin: 150px 20px 100px 20px;
+
+	} 
+
+ }
+
+  @media (min-width: 576px) { 
+	.box{
+		margin: 150px 50px 100px 50px;
+
+	} 
+ }
+@media (min-width: 768px) { 
+	.box{
+		margin: 150px 120px 100px 120px;
+
+	} 
+ }
+@media (min-width: 992px) {
+	.box{
+		margin: 150px 250px 150px 250px
+
+	} 
+}
+@media (min-width: 1200px) {
+	.box{
+		margin: 150px 300px 150px 300px
+
+	} 
+}
+
+
+
+

@@ -1,0 +1,19 @@
+<br/>
+<p>Please select section and semester :</p>
+  <select
+    name="sem"
+    class="form-select"
+    aria-label="Default select example"
+  >
+  <option value="none" selected>Select</option>
+    <% semsec.forEach(function(x){ %>
+    <option>
+      <%= x.course_id %> -- <%= x.sec %> sec -- <%= x.sem %> th sem
+    </option>
+    <% }); %>
+  </select>
+<br />
+<p>Date :</p>
+  <input type="date" name="date" id="date" class="form-control"/>
+  <br />
+  <input class="btn btn-primary" type="submit" value="Submit"/>

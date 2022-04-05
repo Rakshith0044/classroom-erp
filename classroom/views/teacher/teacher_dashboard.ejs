@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmL.cssASjC" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="/css/Tdash_styles.css">
+	<title>Teacher Dashboard</title>
+</head>
+
+<body>
+	<%- include("navbar") -%>
+	<div>
+		<h2>Welcome To Your Classroom!</h2>
+		
+
+		<div class="container d-none d-xl-block">
+			<div class="card sidebar" style="width: 18rem; height: 33rem;">
+			  <div class="card-body ">
+				  <img src="images/no_img.jpg">
+				<h5 class="card-title"><%= staff_name %></h5>
+				<h6 class="card-subtitle mb-2 text-muted">Proffesor</h6>
+				<div class="card-text">Staff ID: <%= staff_id %></div>
+				<div class="card-text">Department: <%= dept_name %></div>
+				<div class="card-text">Phone No: <%= contact %></div>
+				<div class="card-text">Email: <%= email %></div>
+				<div class="card-text">Gender: <%= gender=='M' ? 'Male' : 'Female' %></div> 
+			
+			  </div>
+			</div>
+		</div>
+
+		<div class="container-fluid">
+			<div class="row row-cols-1 row-cols-md-3 mb-3">
+				<div class="card col-md-12 col-sm-12" style="width: 19rem;">
+					<img src="images/atten_icon.png" class="card-img-top" alt="...">
+			  		<div class="card-body">
+			    		<h5 class="card-title">Attendence</h5>
+			    		<p class="card-text">Mark Attendence for your current class.</p>
+			    		<a href="/teachers/attendence" class="btn btn-primary">Mark Attendence</a>
+			  		</div>
+				</div>
+
+				<div class="card" style="width: 19rem;">
+				  <img src="images/Ass_icon.png" class="card-img-top" alt="...">
+				  	<div class="card-body">
+				    	<h5 class="card-title">View And Update Attendence</h5>
+				    	<p class="card-text">View Marked and Update Attendence for your classes</p>
+				    	<a href="teachers/view_attendence" class="btn btn-primary">View Attendence</a>
+				  	</div>
+				</div>
+			
+				<div class="card" style="width: 19rem;">
+					<img src="images/rep_icon.png" class="card-img-top" alt="...">
+					<div class="card-body">
+			    		<h5 class="card-title">Attendence Report</h5>
+			    		<p class="card-text">View The Overall Attendence for your students</p>
+			    		<a href="teachers/report" class="btn btn-primary">View Report</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	</body>
+</html>
+
+
+

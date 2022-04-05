@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="/css/attendence_styles.css">
+	<title>Attendence Report</title>
+</head>
+<body>
+	<%- include("navbar") -%>
+<br>
+
+	<h1>Attendence Report</h1>
+	<div class=" container-fluid">
+		<div class="box col-lg-4 col-md-6 col-sm-10">
+			<form action="/teachers/view_stud" method="POST">
+				<br>
+				<p>Please select section and semester:</p>
+				<select name="sem" class="form-select" aria-label="Default select example">
+				<option selected>Select</option>
+				<% semsec.forEach(function(x){ %>
+				<option>                 
+					<%= x.course_id %> -- <%= x.sec %> sec -- <%= x.sem %> th sem
+				</option>
+				<% }); %>
+				</select>
+				<br>
+				<input class="btn btn-primary" type="submit" value="Submit">
+			</form>
+		</div>
+	</div>
+
+		<br>
+		<br>
+
+		<% if(data!=null){ %>
+		<div class="tabl col-lg-10 col-md-12 col-sm-12">
+			<table class="table table-bordered table-striped">
+				 <thead class="table-dark text-center">
+				   <tr>
+						<th scope="col">Usn</th>
+						<th scope="col">Name</th>
+						<th scope="col">Percentage</th>
+				   </tr>
+				 </thead>
+				 <tbody class="text-center">
+					<% data.forEach(function(ele){ %>
+						<tr>
+						  <td><%= ele.usn %></td>
+						  <td><%= ele.stud_name %></td>
+						  <td><%= ele.perc %>%</td>
+						</tr>
+					<% }); %>
+  				</tbody>
+			</table>
+			<br>
+		</div>
+		<% } %>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

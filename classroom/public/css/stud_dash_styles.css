@@ -1,0 +1,38 @@
+
+p{
+	font-weight: bold;
+	font-size: 100px;
+}
+.colour{
+	color: white;
+}
+
+
+.Attendence{
+	background-color: black;
+	color: white;
+}
+
+.accordion{
+	padding-bottom: 30px;
+}
+
+@media (min-width: 576px){
+	.card2{
+		margin-top: 50px;
+		margin-bottom: 50px;
+	}
+} 
+
+@media (min-width: 768px) {
+	.card2{
+		margin: 80px 0px 0px 50px
+	} 
+ }
+
+ @media (min-width: 992px) {
+	.card2{
+		margin: 95px 0px 0px 0px
+	} 
+ }
+

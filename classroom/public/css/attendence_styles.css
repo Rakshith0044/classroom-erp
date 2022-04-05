@@ -1,0 +1,35 @@
+h1{
+	background-color: white;
+	color: black;
+	text-align: center;
+	height: 55px;
+}
+.box{
+	margin:0px 50px 0px 50px;
+}
+p{
+	font-weight: bold;
+}
+.tick{
+	margin-left: 250px;
+}
+
+.justify-content-center{
+	margin-bottom: 30px;
+}
+
+strong{
+	margin-left: 46%;
+}
+
+/*.tabl{
+	margin: 0px 50px 0px 250px;
+
+}*/
+
+@media (min-width: 992px) {
+	.tabl{
+	/*margin: 0px 50px 0px 250px;*/
+	margin-left: auto;
+	margin-right: auto;
+}
